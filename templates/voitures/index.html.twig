@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voitures{% endblock %}
+
+{% block body %}
+<h1 class="text-center my-5">Liste de toutes les voitures</h1>
+<div class="example-wrapper">
+    <div class="container mb-5">
+        <div class="row col-12 justify-content-around">
+            {% for voiture in voitures %}
+                    <div class="card mt-5" style="width: 30rem;">
+                        <img class="card-img-top" src="{{ voiture.photo }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ voiture.nom }}</h5>
+                            <p class="card-text">{{ voiture.presentation | raw | slice(0, 300)}}...</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ path('voiture_show', {'id': voiture.id}) }}" class="btn btn-primary">Lire la suite</a>
+                            <a href="{{ path('voiture_edit', {'id': voiture.id}) }}" class="btn btn-secondary">Modifier</a>
+                            <a href="{{ path('voiture_delete', {'id': voiture.id}) }}" class="btn btn-danger" onclick="return confirm('Vous aller supprimer la voiture, voulez vous la supprimer?')">Supprimer</a>
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

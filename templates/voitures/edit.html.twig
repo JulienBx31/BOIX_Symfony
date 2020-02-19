@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voitures{% endblock %}
+
+{% form_theme formVoiture 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <div class="container">
+        <h1>Modifier la voiture</h1>
+
+        {{ form_start(formVoiture) }}
+    
+        {{ form_row(formVoiture.nom, {'attr': {'placeholder': "Nom de la voiture..."}}) }}
+        {{ form_row(formVoiture.marque, {'attr': {'placeholder': "Marque de la voiture..."}}) }}
+        {{ form_row(formVoiture.photo, {'attr': {'placeholder': "Url de la photo..."}}) }}
+        {{ form_row(formVoiture.annee, {'attr': {'placeholder': "Ajouter une année..."}}) }}
+        {{ form_row(formVoiture.production, {'attr': {'placeholder': "Production..."}}) }}
+        {{ form_row(formVoiture.presentation, {'attr': {'placeholder': "Description..."}}) }}
+    
+        <button type="submit" class="btn btn-success mb-5">
+            Modifier la voiture
+        </button>
+    
+        {{ form_end(formVoiture) }}
+    </div>
+{% endblock %}
